@@ -1,0 +1,25 @@
+{
+  "name": "hw10_template_engine_employee_summary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfurusho/hw10_template_engine_employee_summary.git"
+  },
+  "author": "hfurusho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hfurusho/hw10_template_engine_employee_summary/issues"
+  },
+  "homepage": "https://github.com/hfurusho/hw10_template_engine_employee_summary#readme",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
