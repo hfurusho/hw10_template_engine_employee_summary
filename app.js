@@ -2,13 +2,21 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const questions = require("./lib/questions.js");
+const generateMainHtml = require("./lib/generateMainHtml");
 const inquirer = require("inquirer");
+
+const manager = new Manager("Manager Guy", 555, "test1@work.com", 443);
+const engineer = new Engineer("Engineer Girl", 333, "test2@work.com", "skelly");
+const intern = new Intern("Intern Person", 555, "test3@work.com", "UW");
+
+let team = [manager, engineer, intern];
 
 init();
 
 async function init() {
   try {
-    const team = await buildTeam();
+    // const team = await buildTeam();
+    console.log(generateMainHtml(team));
   } catch (err) {
     console.log(err);
   }
@@ -65,7 +73,7 @@ async function buildTeam() {
       );
     } else {
       buildingTeam = false;
-      console.log(team);
+      console.log(JSON.stringify(team));
     }
   }
 }
