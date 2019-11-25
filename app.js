@@ -80,7 +80,6 @@ async function buildTeam() {
       );
     } else {
       buildingTeam = false;
-      console.log(JSON.stringify(team));
     }
   }
 }
