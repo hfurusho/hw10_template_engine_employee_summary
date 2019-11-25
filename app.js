@@ -4,11 +4,15 @@ const Intern = require("./lib/Intern.js");
 const questions = require("./lib/questions.js");
 const generateMainHtml = require("./lib/generateMainHtml");
 const inquirer = require("inquirer");
+const fs = require("fs");
+const util = require("util");
 
+const writeFileAsync = util.promisify(fs.writeFile);
+
+// TESTING VARIABLES
 const manager = new Manager("Manager Guy", 555, "test1@work.com", 443);
 const engineer = new Engineer("Engineer Girl", 333, "test2@work.com", "skelly");
 const intern = new Intern("Intern Person", 555, "test3@work.com", "UW");
-
 let team = [manager, engineer, intern];
 
 init();
@@ -16,7 +20,10 @@ init();
 async function init() {
   try {
     // const team = await buildTeam();
-    console.log(generateMainHtml(team));
+    let html = generateMainHtml(team);
+    await writeFileAsync("./output/team.html", html);
+    console.log("Team page successfully built!");
+    console.log("File saved to ./output/team.html");
   } catch (err) {
     console.log(err);
   }
