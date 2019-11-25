@@ -4,14 +4,6 @@ const Intern = require("./lib/Intern.js");
 const questions = require("./lib/questions.js");
 const inquirer = require("inquirer");
 
-const sampleTeam = [ Manager {
-    name: 'joe',
-    id: 121,
-    email: 'something@something',
-    officeNumber: 555 },
-  Engineer { name: 'Haps', id: 432, email: 'anotherone', github: 'hfurusho' },
-  Intern { name: 'smaller', id: 678, email: 'joey@sb.com', school: 'UCLA' }]
-  
 init();
 
 async function init() {
