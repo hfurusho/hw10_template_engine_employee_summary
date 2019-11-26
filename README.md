@@ -9,7 +9,7 @@ This CLI application will quickly generate a software engineering team webpage f
 
 The application will then generate the HTML and write it to a file.
 
-#Example 
+## Example 
 
 ![Demo of app](https://github.com/hfurusho/hw10_template_engine_employee_summary/blob/master/assets/demo.gif)
 
