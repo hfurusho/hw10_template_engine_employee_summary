@@ -10,16 +10,16 @@ const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
 
 // TESTING VARIABLES
-const manager = new Manager("Manager Guy", 555, "test1@work.com", 443);
-const engineer = new Engineer("Engineer Girl", 333, "test2@work.com", "skelly");
-const intern = new Intern("Intern Person", 555, "test3@work.com", "UW");
-let team = [manager, engineer, intern];
+// const manager = new Manager("Manager Guy", 555, "test1@work.com", 443);
+// const engineer = new Engineer("Engineer Girl", 333, "test2@work.com", "skelly");
+// const intern = new Intern("Intern Person", 555, "test3@work.com", "UW");
+// let team = [manager, engineer, intern];
 
 init();
 
 async function init() {
   try {
-    // const team = await buildTeam();
+    const team = await buildTeam();
     let html = generateMainHtml(team);
     await writeFileAsync("./output/team.html", html);
     console.log("Team page successfully built!");
@@ -30,6 +30,8 @@ async function init() {
 }
 
 async function buildTeam() {
+  let team = [];
+  let manager;
   let buildingTeam = (
     await inquirer.prompt([
       {
@@ -39,9 +41,7 @@ async function buildTeam() {
       }
     ])
   ).buildingTeam;
-
-  let team = [];
-  let manager;
+  console.clear();
 
   while (buildingTeam) {
     if (!manager) {
@@ -54,6 +54,7 @@ async function buildTeam() {
           manager.uniqueProp
         )
       );
+      console.clear();
     }
 
     let nextMember = await inquirer.prompt(questions.nextMember);
@@ -81,5 +82,7 @@ async function buildTeam() {
     } else {
       buildingTeam = false;
     }
+    console.clear();
   }
+  return team;
 }
